@@ -93,10 +93,34 @@
 
 Just like how the public CAs publish their root certs to all browser windows, many organizations do this to better manage certificates for their internal use.
 
-They create a private CA and add the public key of that CA to all the browsers on all the machines in the organization through some kind of orchestration system like _Puppet_
+They create a private CA and add the public key of that CA to all the browsers on all the machines in the organization through some kind of orchestration system like _Shuffle_ or _Puppet_
 
 Creating a private CA is easy. It is a multi step well documented process which you can establish your own CA
 
 This way we solve the number 4. of self-signed certs which requires the browser's tor
 
 As long as you don't change the private key of the CA, you don't need to worry about updating the browsers again. So it is a one time task internally on all your machines and all the applications which will act as an SSL client for your internal websites
+
+## Reading / Examining the certificate
+
+### Through Browser
+
+Open browser of your choice and type the website
+
+Look at the address bar and click on secure and more details
+
+### Through command line
+
+**PEM certificate output**
+
+```
+openssl s_client google.com:443
+```
+
+**Readable version**
+
+```
+openssl s_client google.com:443 < /dev/null | openssl x509 -in /dev/stdin -text -noout
+```
+
+- x509: certificates standard
