@@ -120,3 +120,51 @@ The digital signature is sent along with the original content of the file. Users
 When you request the CA for certificate, the CA may sign and give you back a DER or PEM standard certificate.
 
 If we can read the content, is PEM encoded.
+
+## Types of certificates
+
+based on **trust level (DV, OV, EV)**
+
+### DV - Domain Validated (Basic)
+
+- Small or medium level website owners who only wish to encrypt their domain can issue DV SSL certificate
+- Features
+  - No paper work or documentation required for validation. Validated against the domain. It does not guarantee the identity of the website's owner nor the actual existence of the organization
+  - Green padlock
+  - Lower price
+  - Quick issuance within minutes
+  - 99.9% mobile and web browser compatibility
+  - Comes up with Wildcard and Multi Domain features
+  - Reissue as many times as needed during the validity period
+- Validation process(email, file, registrar)
+- https://aboutssl.org/domain-validated-ssl-validation-process
+
+In certificate details, the owner:
+
+> This website does not supply ownership information
+
+### OV - Organization Validated (Enhanced)
+
+- Business identity level trust. Organization name printed in the certificate.
+
+- Features
+
+  - Green padlock
+  - 1 - 3 days for issuance
+  - More trusted than DV
+  - Organization name is validated and part of the certificate. (Organization and Subject are filled up)
+
+- https://aboutssl.org/document-require-for-ov-ssl-code-signing-certificate
+
+### EV - Extended Validated (Complete)
+
+- For trusted and high security sites
+
+- Features
+
+  - Green address Bar + Organization Name + Trust Seal
+  - Up to 10 business days for issuance & Very Strict Validation Process
+  - OV by default + High 256-bit encryption with 2048-bit Key Length
+  - Multi domain with SAN only.
+
+- https://aboutssl.org/document-require-for-ev-ssl-certificate
