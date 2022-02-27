@@ -50,3 +50,42 @@ List of domain names, for which this particular certificate is valid. If the adm
 
 URI:...
 CRL is the certificate's revoke list
+
+## Digital Signature
+
+In general, a digital signature is the hash of something signed with the private key of the signer.
+
+The data input file can be a document, video, software etc..
+
+The digital signature is sent along with the original content of the file. Users verify integrity and authenticity of the message.
+
+### Steps for a sender to send a signed document
+
+1. Sender calculates the **hash**(digest) of the input, using a Hashing Algorithm like SHA2
+
+2. Sender encrypts the hash using Sender's Private Key - **Signing**
+
+3. The resulting signature and the original document are send together to the receiver
+
+4. Receiver decrypts the signature using Sender's Public Key that is available publicly - **hash**
+
+5. Receiver calculates the **hash**(digest) of the input
+
+6. Receiver compares both the hashes - **Signature verification**
+
+- If they match => The integrity of the document is verified.
+- If they are different => the document is either tampered or the public key is wrong.
+
+> Receiver knows what hashing algorithm was used to calculate the signature because it is a plain text information send along with the signature
+
+### Overview on Digital Signature
+
+- Hash of something signed by private key
+
+- Verified using public key
+
+- Satisfies Integrity, Authenticity and Non-repudiation
+
+- Verification is done by comparing the message digests (Hashes)
+
+- Applications - SSL, Secure eMail, eDocuments, Watermarking
