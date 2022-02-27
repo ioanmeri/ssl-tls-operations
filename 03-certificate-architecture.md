@@ -89,3 +89,34 @@ The digital signature is sent along with the original content of the file. Users
 - Verification is done by comparing the message digests (Hashes)
 
 - Applications - SSL, Secure eMail, eDocuments, Watermarking
+
+## Certificate standard and encoding methods
+
+**Standard**
+
+- x509 - PKIX (Public Key Infrastructure) certificate - rfc6818
+- One of the _ITU X.500 Directory standards_ was chosen to be the certificate standard for SSL by NetScape when they designed SSL. So, what are colloquially known as SSL certificates are actually "X.509 certificates".
+
+**Encoding**
+
+- DER (Distinguished Encoding Rules) Std => Binary DER encoded certs. (appear as .cer/.crt files)
+- PEM (Privacy Enhance Mail) Std => ASCII (Base64) armored data prefixed with a "--- BEGIN ---" line. (appears as .cer/.crt/.pem files)
+
+**File extensions**
+
+.crt => \*nix convention of binary DER or (ASCII) Base64 PEM
+
+.cer => Microsoft convention of binary DER or Base64 PEM
+
+.key => public/private PKCS#8 keys. DER or PEM.
+
+```
+# Encoding conversion
+> openssl x509 -in ServerCertificate.cer -outform der -out ServerCertificate.der
+
+> openssl x509 -in ServerCertificate.der -inform der -outform pem -out ServerCertificate.pem
+```
+
+When you request the CA for certificate, the CA may sign and give you back a DER or PEM standard certificate.
+
+If we can read the content, is PEM encoded.
