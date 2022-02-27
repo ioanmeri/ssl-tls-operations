@@ -29,3 +29,36 @@ Algorithm Family, Security Estimation & Key Length
 | Integer Factorization (RSA)           | 1024 bits       | 3072 bits     | 15360 bits     |
 | Descrete Logarithm (DH, DSA, Elgamal) | 1024 bits       | 3072 bits     | 15360 bits     |
 | Elliptic Curves (ECDH, ECDSA)         | 160 bits        | 256 bits      | 512 bits       |
+
+## Private / Symmetric Key Encryption
+
+**Private** meaning there is only one key involved and it is private to both parties involved in the secure communication
+
+**Symmetric** meaning that encryption and decryption are using the same key. Both parties should known the secret key in advance. Key exchange should be done by other means (mail, word of mouth, messages)
+
+- DES, 3DES, AES, RC4
+- Based on single common shared secret key
+- Faster than Public Key encryption
+- Both sender and receiver should have the shared secret
+
+### Flow
+
+1. The sender encrypts the input data with the secret key and sends it across the receiver.
+
+2. The receiver uses the same shared key, which has been communicated to him previously, by some other means, to decrypt the message
+
+If the shared secret key is compromised the safe communication fails
+
+## Private / Symmetric Key Encryption - AES
+
+Advanced encryption standard
+
+- Based on Rijndael algorithm
+- Block cipher
+- Modes
+  - Electronic Codebook (ECB)
+  - Cipher Block Chaining (CBC)
+  - Output Feedback (OFB)
+  - Counter (CTR)
+  - Galois / Counter Mode (GCM) - Recommended over others
+- 128, 192 and 256 bits
